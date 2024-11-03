@@ -1,0 +1,30 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+
+div, span, input, textarea {
+  box-sizing: border-box;
+}
+
+:root {
+  // colors
+  --border-color: #7575751f;
+  --border-color-active: #7575755e;
+  --emphasis-1: #EA0056;
+  --emphasis-2: #F2A100;
+  --emphasis-3: #1E1E1E;
+  --emphasis-4: #75AD6F;
+  --emphasis-5: #278E58;
+
+  // size and space
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-xl: 0.75rem;
+}
