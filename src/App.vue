@@ -1,69 +1,34 @@
 <template>
     <v-app theme="light">
         <v-main class="ed main">
-            <Header title="Edu survey" />
-            <Survey id="survey1" @submit="submitSurvey">
-                <FormControl>
-                    <VLabel id="options-label">How frequently do you fill in
-                        surveys?
-                    </VLabel>
-                    <LikertOptionGroup id="options" aria-labelledby="options-label">
-                        <LikertOption
-                            v-for="ld in surveyStore.likertData"
-                            :id="ld.id"
-                            :key="ld.id"
-                            :is-selected="surveyStore.frequencyChoice === ld.value"
-                            name="frequency"
-                            :option-text="ld.text"
-                            :state="ld.state"
-                            :value="ld.value"
-                            @change="updateLikertData"
-                        />
-                    </LikertOptionGroup>
-                </FormControl>
-
-                <FormControl>
-                    <VLabel for="textarea" text="Free form comments" />
-                    <VTextarea
-                        id="textarea"
-                        hide-details="auto"
-                        :model-value="surveyStore.freeText"
-                        placeholder="Tell us about your experience"
-                        rows="3"
-                        variant="outlined"
-                        @update:model-value="updateFreeText"
-                    />
-                </FormControl>
-
-                <v-btn type="submit" variant="tonal">Submit</v-btn>
-            </Survey>
+            <router-view />
         </v-main>
     </v-app>
 </template>
 
 <script lang="ts" setup>
-import FormControl from '@/components/FormControl.vue'
-import Header from '@/components/Header.vue'
-import LikertOption from '@/components/LikertOption.vue'
-import Survey from '@/components/Survey.vue'
-import { useSurveyStore } from '@/stores/surveyStore'
 
-const surveyStore = useSurveyStore()
-
-const updateLikertData = (optionValue: string) => {
-    surveyStore.frequencyChoice = optionValue
-}
-
-const updateFreeText = (text: string) => {
-    surveyStore.freeText = text
-}
-
-const submitSurvey = (surveyId: string) => {
-    console.log(surveyId)
-}
 </script>
 
 <style>
+div, span, input, textarea {
+    box-sizing: border-box;
+}
+
+:root {
+    --border-color: #7575751f;
+    --border-color-active: #7575755e;
+    --emphasis-1: #EA0056;
+    --emphasis-2: #F2A100;
+    --emphasis-3: #1E1E1E;
+    --emphasis-4: #75AD6F;
+    --emphasis-5: #278E58;
+
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-xl: 0.75rem;
+}
+
 .ed.main {
     display: flex;
     flex-direction: column;

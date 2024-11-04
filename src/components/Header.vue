@@ -2,7 +2,9 @@
     <v-app-bar>
         <div class="d-flex justify-space-between align-center w-100 px-4">
             <v-icon :icon="mdiHamburger" />
-            <div class="ed header-title">{{ props.title }}</div>
+            <div class="ed header-title">
+                <slot />
+            </div>
             <v-icon :icon="mdiMagnify" />
         </div>
     </v-app-bar>
@@ -10,10 +12,6 @@
 
 <script lang="ts" setup>
 import { mdiHamburger, mdiMagnify } from '@mdi/js'
-
-const props = defineProps<{
-    title: string;
-}>()
 </script>
 
 <style scoped>

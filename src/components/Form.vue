@@ -1,5 +1,6 @@
 <template>
     <form
+        :id="props.id"
         class="ed survey-container"
         @submit="$emit('submit', props.id)"
     >

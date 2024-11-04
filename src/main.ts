@@ -1,7 +1,8 @@
 import 'vuetify/styles'
+
+import { router } from '@/router'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-
 import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
 import { createVuetify } from 'vuetify'
@@ -34,5 +35,5 @@ export function registerPlugins (app: VueApp) {
 const app = createApp(App)
 
 registerPlugins(app)
-
+app.use(router)
 app.mount('#app')
